@@ -15,4 +15,6 @@
                                   \n3. Pound (lb)\nPound adalah satuan berat dalam sistem Amerika. Pound Digunakan untuk berat badan bahan makanan\n
                                   \n4. Gallon (gal)\nGallon adalah satuan volume cairan. Gallon Digunakan untuk bahan bakar (bensin) minuman atau cairan lainnya</string>
     <string name="kembali">Kembali</string>
+    <string name="bagikan">Bagikan</string>
+    <string name="bagikan_template">%1$s %2$s = %3$.2f %4$s</string>
 </resources>

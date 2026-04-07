@@ -1,5 +1,7 @@
 package com.ghaldanurzahrah0016.assessment1.ui.screen
 
+import android.content.Context
+import android.content.Intent
 import android.content.res.Configuration
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
@@ -39,6 +41,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.input.ImeAction
@@ -98,6 +101,8 @@ fun ScreenContent(modifier: Modifier = Modifier) {
     val hasilSatuan = satuan.second
 
     var hasil by rememberSaveable { mutableDoubleStateOf(0.0) }
+
+    val context = LocalContext.current
 
     Column(
         modifier = modifier.fillMaxSize()
@@ -168,13 +173,20 @@ fun ScreenContent(modifier: Modifier = Modifier) {
         ) {
             Text(text = stringResource(R.string.hitung))
         }
-        //
+        val message = stringResource(R.string.bagikan_template,nilai,satuan.second, hasil,satuan.first)
 
         Text(
             text = stringResource(R.string.hasil, hasil, satuan.first),
             style = MaterialTheme.typography.headlineLarge,
             modifier = Modifier.padding(top = 16.dp).align(Alignment.CenterHorizontally)
         )
+        Button(
+            onClick = {shareData(context, message)},
+            modifier = Modifier.padding(top = 16.dp).align(Alignment.CenterHorizontally),
+            contentPadding = PaddingValues(horizontal = 32.dp, vertical = 16.dp)
+        ) {
+            Text(text = stringResource(R.string.bagikan))
+        }
     }
 }
 
@@ -222,6 +234,16 @@ fun IconPicker(isError: Boolean, unit: String) {
 fun ErrorHint(isError: Boolean) {
     if (isError) {
         Text(text = stringResource(R.string.input_invalid))
+    }
+}
+
+private fun shareData(context: Context, message: String) {
+    val shareIntent = Intent(Intent.ACTION_SEND).apply {
+        type = "text/plain"
+        putExtra(Intent.EXTRA_TEXT, message)
+    }
+    if (shareIntent.resolveActivity(context.packageManager) != null) {
+        context.startActivity((shareIntent))
     }
 }
 
