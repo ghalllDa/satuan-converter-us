@@ -2,12 +2,14 @@ package com.ghaldanurzahrah0016.assessment1.ui.screen
 
 import android.content.res.Configuration
 import androidx.compose.foundation.border
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.selection.selectable
+import androidx.compose.foundation.selection.selectableGroup
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
@@ -28,6 +30,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.Role
@@ -64,13 +67,14 @@ fun ScreenContent(modifier: Modifier = Modifier) {
     var nilaierror by remember { mutableStateOf(false) }
 
     val radioOption = listOf(
-        stringResource(R.string.inch),
-        stringResource(R.string.feet),
-        stringResource(R.string.pound),
-        stringResource(R.string.gallon)
+        "inch" to "cm",
+        "feet" to "m",
+        "pound" to "kg",
+        "gallon" to "liter"
     )
 
     var satuan by remember { mutableStateOf(radioOption[0]) }
+    val hasilSatuan = satuan.second
 
     Column(
         modifier = modifier.fillMaxSize().padding(16.dp)
@@ -84,7 +88,7 @@ fun ScreenContent(modifier: Modifier = Modifier) {
             value = nilai,
             onValueChange = { nilai = it },
             label = { Text(text = stringResource(R.string.nilai)) },
-            trailingIcon = {IconPicker(nilaierror, "kg")},
+            trailingIcon = {IconPicker(nilaierror, hasilSatuan)},
             supportingText = {ErrorHint(nilaierror)},
             isError = nilaierror,
             singleLine = true,
@@ -94,23 +98,26 @@ fun ScreenContent(modifier: Modifier = Modifier) {
             ),
             modifier = Modifier.fillMaxWidth()
         )
-        Row (
+        Column(
             modifier = Modifier
                 .padding(top = 6.dp)
-                .border(1.dp, Color.Gray, RoundedCornerShape(4.dp))
+                .border(1.dp, Color.Gray, RoundedCornerShape(8.dp))
+                .clip(RoundedCornerShape(8.dp))
+                .selectableGroup()
+                .padding(vertical = 8.dp),
+            verticalArrangement = Arrangement.spacedBy(8.dp)
         ){
-            radioOption.forEach { text ->
+            radioOption.forEach { option ->
                 SatuanOption(
-                    label = text,
-                    isSelected = satuan == text,
+                    label = option.first,
+                    isSelected = satuan == option,
                     modifier = Modifier
                         .selectable(
-                            selected = satuan == text,
-                            onClick = { satuan = text },
+                            selected = satuan == option,
+                            onClick = { satuan = option },
                             role = Role.RadioButton
                         )
-                        .weight(1f)
-                        .padding(16.dp)
+                        .padding(horizontal = 16.dp, vertical = 12.dp)
                 )
             }
         }

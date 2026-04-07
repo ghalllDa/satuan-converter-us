@@ -1,11 +1,6 @@
 <resources>
     <string name="app_name">Assessment1</string>
-    <string name="nilai">Nilai</string>
-    <string name="nilai">Nilai</string>
-    <string name="inch">Inch</string>
-    <string name="feet">Feet</string>
-    <string name="pound">Pound</string>
-    <string name="gallon">Gallon</string>
+    <string name="nilai">Nilai</string>>
     <string name="input_invalid">Nilai tidak boleh kosong</string>
     <string name="intro">US converter adalah aplikasi untuk membantu mengubah nilai satuan umum ke nilai satuan yang digunakan di amerika</string>
 </resources>
