@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Assessment1</string>
+    <string name="nilai">Nilai</string>
+    <string name="intro">US converter adalah aplikasi untuk membantu mengubah nilai satuan umum ke nilai satuan yang digunakan di amerika</string>
 </resources>
