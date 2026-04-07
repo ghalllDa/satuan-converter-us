@@ -4,16 +4,20 @@ import android.content.res.Configuration
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.selection.selectable
 import androidx.compose.foundation.selection.selectableGroup
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Warning
+import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -25,6 +29,7 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableDoubleStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -68,7 +73,7 @@ fun ScreenContent(modifier: Modifier = Modifier) {
 
     val radioOption = listOf(
         "inch" to "cm",
-        "feet" to "m",
+        "feet" to "cm",
         "pound" to "kg",
         "gallon" to "liter"
     )
@@ -76,14 +81,19 @@ fun ScreenContent(modifier: Modifier = Modifier) {
     var satuan by remember { mutableStateOf(radioOption[0]) }
     val hasilSatuan = satuan.second
 
+    var hasil by remember { mutableDoubleStateOf(0.0) }
+
     Column(
-        modifier = modifier.fillMaxSize().padding(16.dp)
+        modifier = modifier.fillMaxSize()
+            .verticalScroll(rememberScrollState())
+            .padding(16.dp),
     ) {
         Text(
             text = stringResource(R.string.intro),
             style = MaterialTheme.typography.bodyLarge,
             modifier = Modifier.fillMaxWidth()
         )
+        Text(text = stringResource(R.string.masukan_nilai))
         OutlinedTextField(
             value = nilai,
             onValueChange = { nilai = it },
@@ -98,6 +108,7 @@ fun ScreenContent(modifier: Modifier = Modifier) {
             ),
             modifier = Modifier.fillMaxWidth()
         )
+        Text(text = stringResource(R.string.pilih_satuan))
         Column(
             modifier = Modifier
                 .padding(top = 6.dp)
@@ -121,6 +132,33 @@ fun ScreenContent(modifier: Modifier = Modifier) {
                 )
             }
         }
+        Button(
+            onClick = {
+                nilaierror = (nilai == "")
+                if (nilaierror) return@Button
+
+                val input = nilai.toDoubleOrNull() ?: 0.0
+
+                hasil = when (satuan.first) {
+                    "inch" -> convertInch(input)
+                    "feet" -> convertFeet(input)
+                    "pound" -> convertPound(input)
+                    "gallon" -> convertGallon(input)
+                    else -> 0.0
+                }
+            },
+            modifier = Modifier.padding(top = 16.dp).align(Alignment.CenterHorizontally),
+            contentPadding = PaddingValues(horizontal = 32.dp, vertical = 16.dp)
+        ) {
+            Text(text = stringResource(R.string.hitung))
+        }
+        //
+
+        Text(
+            text = stringResource(R.string.hasil, hasil, satuan.first),
+            style = MaterialTheme.typography.headlineLarge,
+            modifier = Modifier.padding(top = 16.dp).align(Alignment.CenterHorizontally)
+        )
     }
 }
 
@@ -133,10 +171,26 @@ fun SatuanOption(label: String, isSelected: Boolean, modifier: Modifier) {
         RadioButton(selected = isSelected, onClick = null)
         Text(
             text = label,
-            style = MaterialTheme.typography.bodyLarge,
-            modifier = Modifier.padding(start = 8.dp)
+            style = MaterialTheme.typography.titleLarge,
+            modifier = Modifier.padding(start = 16.dp)
         )
     }
+}
+
+fun convertInch(nilai: Double): Double {
+    return nilai/ 2.54
+}
+
+fun convertFeet(nilai: Double): Double {
+    return nilai / 30.48
+}
+
+fun convertPound(nilai: Double): Double {
+    return nilai * 2.205
+}
+
+fun convertGallon(nilai: Double): Double {
+    return nilai / 3.785
 }
 
 @Composable

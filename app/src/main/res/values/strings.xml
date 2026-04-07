@@ -2,5 +2,9 @@
     <string name="app_name">Assessment1</string>
     <string name="nilai">Nilai</string>>
     <string name="input_invalid">Nilai tidak boleh kosong</string>
-    <string name="intro">US converter adalah aplikasi untuk membantu mengubah nilai satuan umum ke nilai satuan yang digunakan di amerika</string>
+    <string name="hitung">Hitung</string>
+    <string name="hasil">Hasil: %.2f %s</string>
+    <string name="masukan_nilai">Masukan nilai yang ingin di convert</string>
+    <string name="pilih_satuan">Pilih satuan</string>
+    <string name="intro">US converter adalah aplikasi untuk membantu mengubah nilai satuan umum ke nilai satuan yang digunakan di amerika\n</string>
 </resources>
