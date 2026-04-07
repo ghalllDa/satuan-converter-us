@@ -7,4 +7,12 @@
     <string name="masukan_nilai">Masukan nilai yang ingin di convert</string>
     <string name="pilih_satuan">Pilih satuan</string>
     <string name="intro">US converter adalah aplikasi untuk membantu mengubah nilai satuan umum ke nilai satuan yang digunakan di amerika\n</string>
+    <string name="tentang_aplikasi">Tentang Aplikasi</string>
+    <string name="tentang_satuan">US Satuan Converter adalah aplikasi praktis yang membantu kamu mengonversi berbagai satuan umum ke satuan yang digunakan di Amerika Serikat dengan cepat dan akurat.
+                                  Dirancang dengan tampilan sederhana dan mudah digunakan, aplikasi ini cocok untuk kebutuhan sehari-hari—mulai dari belajar, memasak, hingga memahami ukuran dalam referensi internasional.\n
+                                  \n1. Inch (in)\nInch adalah satuan panjang dalam sistem Amerika. Inch Biasanya digunakan untuk ukuran layar (HP, TV, laptop)\n
+                                  \n2. Feet (ft)\nFeet adalah satuan panjang yang lebih besar dari inch. Feet Umumnya digunakan untuk tinggi badan, tinggi bangunan atau ruangan\n
+                                  \n3. Pound (lb)\nPound adalah satuan berat dalam sistem Amerika. Pound Digunakan untuk berat badan bahan makanan\n
+                                  \n4. Gallon (gal)\nGallon adalah satuan volume cairan. Gallon Digunakan untuk bahan bakar (bensin) minuman atau cairan lainnya</string>
+    <string name="kembali">Kembali</string>
 </resources>

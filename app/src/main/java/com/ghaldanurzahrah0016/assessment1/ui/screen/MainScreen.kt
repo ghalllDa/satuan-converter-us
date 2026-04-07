@@ -17,9 +17,11 @@ import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Warning
+import androidx.compose.material.icons.outlined.Info
 import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.RadioButton
@@ -31,7 +33,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableDoubleStateOf
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -43,12 +45,15 @@ import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
 import com.ghaldanurzahrah0016.assessment1.R
+import com.ghaldanurzahrah0016.assessment1.navigation.Screen
 import com.ghaldanurzahrah0016.assessment1.ui.theme.Assessment1Theme
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun MainScreen() {
+fun MainScreen(navController: NavHostController) {
     Scaffold(
         topBar = {
             TopAppBar(
@@ -58,7 +63,18 @@ fun MainScreen() {
                 colors = TopAppBarDefaults.topAppBarColors(
                     containerColor = MaterialTheme.colorScheme.primaryContainer,
                     titleContentColor = MaterialTheme.colorScheme.primary,
-                )
+                ),
+                actions = {
+                    IconButton(onClick = {
+                        navController.navigate(Screen.About.route)
+                    }) {
+                        Icon(
+                            imageVector = Icons.Outlined.Info,
+                            contentDescription = stringResource(R.string.tentang_aplikasi),
+                            tint = MaterialTheme.colorScheme.primary
+                        )
+                    }
+                }
             )
         }
     ) { innerpadding ->
@@ -68,8 +84,8 @@ fun MainScreen() {
 
 @Composable
 fun ScreenContent(modifier: Modifier = Modifier) {
-    var nilai by remember { mutableStateOf("") }
-    var nilaierror by remember { mutableStateOf(false) }
+    var nilai by rememberSaveable { mutableStateOf("") }
+    var nilaierror by rememberSaveable { mutableStateOf(false) }
 
     val radioOption = listOf(
         "inch" to "cm",
@@ -78,10 +94,10 @@ fun ScreenContent(modifier: Modifier = Modifier) {
         "gallon" to "liter"
     )
 
-    var satuan by remember { mutableStateOf(radioOption[0]) }
+    var satuan by rememberSaveable { mutableStateOf(radioOption[0]) }
     val hasilSatuan = satuan.second
 
-    var hasil by remember { mutableDoubleStateOf(0.0) }
+    var hasil by rememberSaveable { mutableDoubleStateOf(0.0) }
 
     Column(
         modifier = modifier.fillMaxSize()
@@ -214,6 +230,6 @@ fun ErrorHint(isError: Boolean) {
 @Composable
 fun GreetingPreview() {
     Assessment1Theme {
-        MainScreen()
+        MainScreen(rememberNavController())
     }
 }
