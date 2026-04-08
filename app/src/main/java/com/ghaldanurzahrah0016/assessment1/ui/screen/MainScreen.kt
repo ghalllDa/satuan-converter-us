@@ -3,6 +3,7 @@ package com.ghaldanurzahrah0016.assessment1.ui.screen
 import android.content.Context
 import android.content.Intent
 import android.content.res.Configuration
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -11,6 +12,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.selection.selectable
 import androidx.compose.foundation.selection.selectableGroup
@@ -42,6 +44,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.input.ImeAction
@@ -113,6 +116,14 @@ fun ScreenContent(modifier: Modifier = Modifier) {
             text = stringResource(R.string.intro),
             style = MaterialTheme.typography.bodyLarge,
             modifier = Modifier.fillMaxWidth()
+        )
+        Image(
+            painter = painterResource(id = R.drawable.penggaris),
+            contentDescription = stringResource(R.string.penggaris),
+            modifier = Modifier
+                .size(160.dp)
+                .align(Alignment.CenterHorizontally)
+                .padding(vertical = 16.dp)
         )
         Text(text = stringResource(R.string.masukan_nilai))
         OutlinedTextField(

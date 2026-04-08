@@ -1,12 +1,13 @@
 <resources>
-    <string name="app_name">Assessment1</string>
+    <string name="app_name">US satuan converter</string>
+    <string name="penggaris">Penggaris dan jangka</string>
     <string name="nilai">Nilai</string>>
     <string name="input_invalid">Nilai tidak boleh kosong</string>
     <string name="hitung">Hitung</string>
     <string name="hasil">Hasil: %.2f %s</string>
     <string name="masukan_nilai">Masukan nilai yang ingin di convert</string>
     <string name="pilih_satuan">Pilih satuan</string>
-    <string name="intro">US converter adalah aplikasi untuk membantu mengubah nilai satuan umum ke nilai satuan yang digunakan di amerika\n</string>
+    <string name="intro">Memudahkan mengonvert ke satuan amerika\n</string>
     <string name="tentang_aplikasi">Tentang Aplikasi</string>
     <string name="tentang_satuan">US Satuan Converter adalah aplikasi praktis yang membantu kamu mengonversi berbagai satuan umum ke satuan yang digunakan di Amerika Serikat dengan cepat dan akurat.
                                   Dirancang dengan tampilan sederhana dan mudah digunakan, aplikasi ini cocok untuk kebutuhan sehari-hari—mulai dari belajar, memasak, hingga memahami ukuran dalam referensi internasional.\n
