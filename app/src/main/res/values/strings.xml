@@ -9,12 +9,7 @@
     <string name="pilih_satuan">Pilih satuan</string>
     <string name="intro">Memudahkan mengonvert ke satuan amerika\n</string>
     <string name="tentang_aplikasi">Tentang Aplikasi</string>
-    <string name="tentang_satuan">US Satuan Converter adalah aplikasi praktis yang membantu kamu mengonversi berbagai satuan umum ke satuan yang digunakan di Amerika Serikat dengan cepat dan akurat.
-                                  Dirancang dengan tampilan sederhana dan mudah digunakan, aplikasi ini cocok untuk kebutuhan sehari-hari—mulai dari belajar, memasak, hingga memahami ukuran dalam referensi internasional.\n
-                                  \n1. Inch (in)\nInch adalah satuan panjang dalam sistem Amerika. Inch Biasanya digunakan untuk ukuran layar (HP, TV, laptop)\n
-                                  \n2. Feet (ft)\nFeet adalah satuan panjang yang lebih besar dari inch. Feet Umumnya digunakan untuk tinggi badan, tinggi bangunan atau ruangan\n
-                                  \n3. Pound (lb)\nPound adalah satuan berat dalam sistem Amerika. Pound Digunakan untuk berat badan bahan makanan\n
-                                  \n4. Gallon (gal)\nGallon adalah satuan volume cairan. Gallon Digunakan untuk bahan bakar (bensin) minuman atau cairan lainnya</string>
+    <string name="tentang_satuan">US Satuan Converter adalah aplikasi praktis yang membantu kamu mengonversi berbagai satuan umum ke satuan yang digunakan di Amerika Serikat dengan cepat dan akurat.\n\nDirancang dengan tampilan sederhana dan mudah digunakan, aplikasi ini cocok untuk kebutuhan sehari-hari—mulai dari belajar, memasak, hingga memahami ukuran dalam referensi internasional.\n\n1. Inch (in): Inch adalah satuan panjang dalam sistem Amerika yang biasanya digunakan untuk ukuran layar seperti HP, TV, dan laptop.\n\n2. Feet (ft): Feet adalah satuan panjang yang lebih besar dari inch dan umumnya digunakan untuk mengukur tinggi badan, tinggi bangunan, atau ruangan.\n\n3. Pound (lb): Pound adalah satuan berat dalam sistem Amerika yang digunakan untuk mengukur berat badan atau bahan makanan.\n\n4. Gallon (gal): Gallon adalah satuan volume cairan yang biasanya digunakan untuk bahan bakar (bensin), minuman, atau cairan lainnya.</string>
     <string name="kembali">Kembali</string>
     <string name="bagikan">Bagikan</string>
     <string name="bagikan_template">%1$s %2$s = %3$.2f %4$s</string>

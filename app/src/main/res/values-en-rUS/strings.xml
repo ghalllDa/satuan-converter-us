@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">US satuan converter</string>
+    <string name="penggaris">" Ruler and compass"</string>
+    <string name="nilai">Value</string>
+    <string name="input_invalid">The value cannot be empty</string>
+    <string name="hitung">Count</string>
+    <string name="hasil">Result: %.2f %s</string>
+    <string name="masukan_nilai">Enter the value you want to convert</string>
+    <string name="pilih_satuan">Select unit</string>
+    <string name="intro">Makes it easy to convert to US units</string>
+    <string name="tentang_aplikasi">About Application</string>
+    <string name="tentang_satuan">US Unit Converter is a practical application that helps you convert various common units into units used in the United States quickly and accurately.\n\nDesigned with a simple and easy-to-use interface, this application is suitable for everyday needs—from studying and cooking to understanding measurements in international references.\n\n1. Inch (in): Inch is a unit of length in the US system commonly used for screen sizes such as phones, TVs, and laptops.\n\n2. Feet (ft): Feet is a larger unit of length than inches and is commonly used to measure height, building height, or room height.\n\n3. Pound (lb): Pound is a unit of weight in the US system used for body weight or food ingredients.\n\n4. Gallon (gal): Gallon is a unit of liquid volume commonly used for fuel (gasoline), beverages, or other liquids.</string>
+    <string name="kembali">Back</string>
+    <string name="bagikan">Share</string>
+    <string name="bagikan_template">%1$s %2$s = %3$.2f %4$s</string>
+</resources>
